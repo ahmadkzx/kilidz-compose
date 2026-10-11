@@ -1,30 +1,6 @@
 version: "3.9"
 
 services:
-  postgres:
-    image: postgres:16
-    container_name: postgres
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    restart: always
-
-  api:
-    build: ./api
-    container_name: api
-    env_file:
-    - ./api/.env
-    ports:
-      - "127.0.0.1:4000:4000"
-    expose:
-      - "4000"
-    depends_on:
-      - postgres
-    restart: always
-
   ui:
     build: ./ui
     container_name: ui
@@ -34,9 +10,4 @@ services:
       - "127.0.0.1:3000:3000"
     expose:
       - "3000"
-    depends_on:
-      - api
     restart: always
-
-volumes:
-  pgdata:
