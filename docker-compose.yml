@@ -36,3 +36,6 @@ services:
     depends_on:
       - api
     restart: always
+
+volumes:
+  pgdata:
