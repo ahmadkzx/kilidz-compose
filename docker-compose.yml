@@ -5,9 +5,9 @@ services:
     env_file:
     - ./api/.env
     ports:
-      - "127.0.0.1:3001:3001"
+      - "127.0.0.1:4000:4000"
     expose:
-      - "3001"
+      - "4000"
     restart: always
 
   ui:
