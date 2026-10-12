@@ -9,6 +9,9 @@ services:
     expose:
       - "4000"
     restart: always
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   ui:
     build: ./ui
