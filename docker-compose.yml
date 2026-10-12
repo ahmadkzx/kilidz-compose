@@ -1,6 +1,15 @@
-version: "3.9"
-
 services:
+  api:
+    build: ./api
+    container_name: api
+    env_file:
+    - ./api/.env
+    ports:
+      - "127.0.0.1:4000:4000"
+    expose:
+      - "4000"
+    restart: always
+
   ui:
     build: ./ui
     container_name: ui
